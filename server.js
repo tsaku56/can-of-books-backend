@@ -20,4 +20,14 @@ app.get("/books", async (request, response) => {
   response.json(books);
 });
 
+app.post("/books", async (request, response) => {
+  const newBook = await Book.create(request.body);
+  response.json(newBook);
+});
+
+app.delete("/books/:id", async (request, response) => {
+  const deletedBook = await Book.findByIdAndDelete(request.params.id);
+  response.json(deletedBook);
+});
+
 app.listen(PORT, () => console.log(`App is listening for port ${PORT}`));
