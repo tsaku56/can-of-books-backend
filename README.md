@@ -1,6 +1,6 @@
 # can-of-books-backend
 
-**Author**: Team Member Names Goes Here
+**Author**: Ross
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview

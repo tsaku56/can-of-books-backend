@@ -5,6 +5,8 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(cors());
+const bp = require("body-parser");
+app.use(bp.json);
 
 const Book = require("./models/books");
 
@@ -27,6 +29,11 @@ app.post("/books", async (request, response) => {
 
 app.delete("/books/:id", async (request, response) => {
   const deletedBook = await Book.findByIdAndDelete(request.params.id);
+  response.json(deletedBook);
+});
+
+app.put("/books/:id", async (request, response) => {
+  const deletedBook = await Book.findByIdAndUpdate(request.params.id);
   response.json(deletedBook);
 });
 
